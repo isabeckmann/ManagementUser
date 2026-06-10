@@ -1,5 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using ManagementUser.Data;
+using ManagementUser.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
     )
 );
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<PerfilService>();
 
 var app = builder.Build();
 
